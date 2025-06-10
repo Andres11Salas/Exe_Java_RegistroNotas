@@ -1,0 +1,118 @@
+public class Estudiante {
+    private int identificacion;
+    private String nombres;
+
+    public void registrarEstudiante(int identificacion, String nombres) {
+        this.identificacion = identificacion;
+        this.nombres = nombres;
+    }
+
+    public void imprimirInfoEstudiante() {
+        System.out.println("Estudiante: " + nombres + " (ID: " + identificacion + ")");
+    }
+
+    public int getIdentificacion() {
+        return identificacion;
+    }
+}
+
+public class Componente {
+    private int identificador;
+    private String nombreComponente;
+    public String profesor;
+
+    public void registrarInfoComponente(int identificador, String nombreComponente, String profesor) {
+        this.identificador = identificador;
+        this.nombreComponente = nombreComponente;
+        this.profesor = profesor;
+    }
+
+    public void imprimirInfoComponente() {
+        System.out.println("Componente: " + nombreComponente + " (ID: " + identificador + ")");
+        System.out.println("Profesor: " + profesor);
+    }
+}
+
+public class Nota {
+    private float notaFinal = 0;
+    private int cantNotas = 0;
+
+    public void calcularNotaPorcentaje(float vrNota, float porcentaje) {
+        float vrNotaPorcentaje = (vrNota * porcentaje) / 100;
+        notaFinal += vrNotaPorcentaje;
+        cantNotas++;
+        System.out.printf("Nota registrada: %.2f con %.0f%% => %.2f\n", vrNota, porcentaje, vrNotaPorcentaje);
+    }
+
+    public void calcularNotaFinal() {
+        System.out.printf("Nota Final: %.2f\n", notaFinal);
+    }
+
+    public void imprimirNotas() {
+        System.out.println("Cantidad de notas registradas: " + cantNotas);
+    }
+}
+
+import java.util.*;
+
+public class Calificaciones {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<Estudiante> estudiantes = new ArrayList<>();
+
+        System.out.print("¿Cuántos estudiantes deseas registrar? ");
+        int numEstudiantes = sc.nextInt();
+        sc.nextLine();  // Vacia Espacio Almacenamiento Temporal
+
+        for (int i = 0; i < numEstudiantes; i++) {
+            Estudiante est = new Estudiante();
+            System.out.println("REGISTRO DEL ESTUDIANTE " + (i + 1));
+            System.out.print("Ingrese identificación: ");
+            int identificacion = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Ingrese nombres: ");
+            String nombres = sc.nextLine();
+            est.registrarEstudiante(identificacion, nombres);
+            estudiantes.add(est);
+        }
+
+        // Registro del componente
+        Componente comp = new Componente();
+        System.out.println("REGISTRO DE COMPONENTE");
+        System.out.print("Ingrese Identificador del componente: ");
+        int identificador = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Ingrese nombre del componente: ");
+        String nombreComponente = sc.nextLine();
+        System.out.print("Ingrese nombre del profesor: ");
+        String profesor = sc.nextLine();
+        comp.registrarInfoComponente(identificador, nombreComponente, profesor);
+
+        // Para cada estudiante, registrar notas
+        for (Estudiante est : estudiantes) {
+            System.out.println("Registro de notas para estudiante");
+            est.imprimirInfoEstudiante();
+            comp.imprimirInfoComponente();
+
+            Nota nota = new Nota();
+            System.out.print("¿Cuántas notas desea registrar para este estudiante?");
+            int cantNotas = sc.nextInt();
+
+            for (int j = 0; j < cantNotas; j++) {
+                System.out.println("Nota: " + (j + 1));
+                System.out.print("Ingrese valor de la nota (0 a 5): ");
+                float vrNota = sc.nextFloat();
+                System.out.print("Ingrese porcentaje de la nota: ");
+                float porcentaje = sc.nextFloat();
+                nota.calcularNotaPorcentaje(vrNota, porcentaje);
+            }
+
+            // Imprimir resumen
+            nota.imprimirNotas();
+            nota.calcularNotaFinal();
+        }
+
+        scanner.close();
+    }
+}
