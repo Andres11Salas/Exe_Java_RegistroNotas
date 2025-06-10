@@ -1,0 +1,53 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Crear objetos
+        Estudiante est = new Estudiante();
+        Componente comp = new Componente();
+        Nota nota = new Nota();
+
+        // Registro del estudiante
+        System.out.println("REGISTRO DE ESTUDIANTE");
+        System.out.print("Ingrese la identificacion del estudiante: ");
+        est.setIdentificacion(sc.nextInt());
+        sc.nextLine(); // Limpiar buffer
+
+        System.out.print("Ingrese los nombres del estudiante: ");
+        est.setNombres(sc.nextLine());
+
+        // Registro del componente
+        System.out.println("REGISTRO DEL COMPONENTE");
+        System.out.print("Ingrese el identificador del componente: ");
+        comp.setIdentificador(sc.nextInt());
+        sc.nextLine();
+
+        System.out.print("Ingrese el nombre del componente: ");
+        String nombreComponente = sc.nextLine();
+
+        System.out.print("Ingrese el nombre del profesor: ");
+        String profesor = sc.nextLine();
+
+        comp.setComponente(nombreComponente, profesor);
+
+        // Registro de notas
+        System.out.println("REGISTRO DE NOTAS");
+        System.out.print("Cuantas notas desea ingresar");
+        int cantidad = sc.nextInt();
+        nota.setCantNotas(cantidad);
+        nota.registrarNotasPorTeclado(); // aqui se piden las notas desde el teclado
+        nota.calcularNotaFinal();
+
+        // Mostrar toda la informacinn
+        System.out.println("INFORMACION COMPLETA");
+        System.out.println("Identificacion del Estudiante: " + est.getIdentificacion());
+        System.out.println("Nombres del Estudiante: " + est.getNombres());
+        System.out.println("Identificador del Componente: " + comp.getIdentificador());
+        System.out.println("Nombre Componente: " + comp.getComponente());
+        System.out.println("Profesor: " + comp.getprofesor());
+        nota.imprimirNotas();
+    }
+}
+

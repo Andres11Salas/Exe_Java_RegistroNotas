@@ -1,0 +1,72 @@
+public class Nota {
+    private float vrNota;
+    private float porcentaje;
+    private float vrNotaPorcentaje;
+    private float notaFinal;
+    private int cantNotas;
+
+    public Nota(float vrNota, float porcentaje, float vrNotaPorcentaje, float notaFinal, int cantNotas){
+        this.vrNota = vrNota;
+        this.porcentaje = porcentaje;
+        this.vrNotaPorcentaje = vrNotaPorcentaje;
+        this.notaFinal = 0;
+        this.cantNotas = 0;
+    }
+
+    public void calcularNotaPorcentaje(float vrNota, float porcentaje) {
+        this.vrNota = vrNota;
+        this.porcentaje = porcentaje;
+        this.vrNotaPorcentaje = (vrNota * porcentaje) / 100;
+        this.notaFinal += this.vrNotaPorcentaje;
+        this.cantNotas++;
+    }
+
+    public void calcularNotaFinal() {
+        System.out.println("Nota Final: " + notaFinal);
+    }
+
+
+    public void imprimirNotas() {
+        System.out.println("Nota ingresada: " + vrNota);
+        System.out.println("Porcentaje de la nota: " + porcentaje + "%");
+        System.out.println("Valor de la nota con porcentaje aplicado: " + vrNotaPorcentaje);
+        System.out.println("Cantidad de notas registradas: " + cantNotas);
+    }
+
+    public float getVrNota() {
+        return vrNota;
+    }
+    public void setVrNota(float vrNota){ 
+        this.vrNota = vrNota;
+    }
+
+    public float getPorcentaje(){ 
+        return porcentaje;
+    }
+    public void setPorcentaje(float porcetaje){ 
+        this.porcentaje = porcentaje;
+    }
+    
+    public float getVrNotaPorcentaje(){ 
+        return vrNotaPorcentaje;
+    }
+    public void setVrNotaPorcentaje(float vrNotaPorcentaje){
+        this.vrNotaPorcentaje = vrNotaPorcentaje;
+    }
+
+    public float getNotaFinal() {
+        return notaFinal;
+    }
+
+    public void setNotaFinal(float notaFinal){ 
+        this.notaFinal = notaFinal;
+    }
+
+    public int getCantNotas(){ 
+        return cantNotas;
+    }
+
+    public void setCantNotas(int cantNotas){  
+        this.cantNotas = cantNotas;
+    }
+}

@@ -1,0 +1,31 @@
+public class Estudiante {
+    private int identificacion;
+    private String nombres;
+   
+    public Estudiante(int identificacion, String nombres);
+        this.identificacion = identificacion;
+        this.nombres = nombres;
+    }
+    public void registrarEstudiante(int identificacion, String nombres);
+        this.identificacion = identificacion;
+        this.nombres = nombres;
+
+    public void imprimirInfoEstudiante() {
+        System.out.println("Identificacion: " + identificacion);
+        System.out.println("Nombres: " + nombres);
+
+    public String getNombres(){
+        return nombres;
+    }
+    public void  setNombres(String nombres){ 
+        this.nombres = nombres;
+    }
+    public int getIdentificacion(){ 
+        return identificacion;
+    }
+    public void setIdentificacion(int identificacion){ 
+        this.identificacion = identificacion;
+    }
+}
+
+   
