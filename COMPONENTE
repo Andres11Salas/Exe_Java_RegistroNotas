@@ -1,0 +1,42 @@
+public class Componente {
+    private int identificador;
+    private String nombreComponente;
+    public String profesor;
+
+    public Componente(int identificador, String nombreComponente, String profesor) {
+        this.identificador = identificador;
+        this.nombreComponente = nombreComponente;
+        this.profesor = profesor;
+    }
+
+    public void registrarInfoComponente(int identificador, String nombreComponente, String profesor);
+        this.identificador = identificador;
+        this.nombreComponente = nombreComponente;
+        this.profesor = profesor;
+    }
+
+    public void imprimirInfoComponente() {
+        System.out.println("Identificador: " + identificador);
+        System.out.println("Nombre del componente: " + nombreComponente);
+        System.out.println("Profesor: " + profesor);
+    }
+
+    public int getIdentificador(){ 
+        return identificador;
+    }
+    public String getNombreComponente(){
+        return nombreComponente;
+    }
+    public String getProfesor() {
+        return profesor;
+    }
+    public void  setIdentificador(int identificador){ 
+        this.identificador = identificador;
+    }
+    public void  setNombreComponente(String nombreComponente){ 
+        this.nombreComponente = nombreComponente;
+    }
+    public void  setProfesor(String profesor){ 
+        this.profesor = profesor;
+    }
+}
