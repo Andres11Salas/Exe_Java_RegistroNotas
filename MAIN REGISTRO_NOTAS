@@ -1,0 +1,58 @@
+import java.util.*;
+
+public class ProgramaNotas {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+
+        for (int i = 0; i < numEstudiantes; i++) {
+            Estudiante est = new Estudiante();
+            System.out.println("Registro Estudiante: " + (i + 1) + " ---");
+            System.out.print("Ingrese identificacion: ");
+            int identificacion = sc.nextInt();
+            scanner.nextLine();
+            System.out.print("Ingrese nombres: ");
+            String nombres = sc.nextLine();
+            est.registrarEstudiante(identificacion, nombres);
+            estudiantes.add(est);
+        }
+
+        Componente comp = new Componente();
+        System.out.println("Registro de Componente: ");
+        System.out.print("Ingrese ID del componente: ");
+        int identificador = sc.nextInt();
+        scanner.nextLine();
+        System.out.print("Ingrese nombre del componente: ");
+        String nombreComponente = sc.nextLine();
+        System.out.print("Ingrese nombre del profesor: ");
+        String profesor = sc.nextLine();
+        comp.registrarInfoComponente(, nombreComponente, profesor);
+
+        // Para cada estudiante, registrar notas
+        for (Estudiante est : estudiantes) {
+            System.out.println("Registro de notas para estudiante");
+            est.imprimirInfoEstudiante();
+            comp.imprimirInfoComponente();
+
+            Nota nota = new Nota();
+            System.out.print("Cuantas notas desea registrar para este estudiante");
+            int cantNotas = scanner.nextInt();
+
+            for (int j = 0; j < cantNotas; j++) {
+                System.out.println("Nota " + (j + 1) + "");
+                System.out.print("Ingrese valor de la nota (0 a 5): ");
+                float vrNota = scanner.nextFloat();
+                System.out.print("Ingrese porcentaje de la nota: ");
+                float porcentaje = scanner.nextFloat();
+                nota.calcularNotaPorcentaje(vrNota, porcentaje);
+            }
+
+            
+            nota.imprimirNotas();
+            nota.calcularNotaFinal();
+        }
+
+        scanner.close();
+    }
+}
